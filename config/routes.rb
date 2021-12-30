@@ -1,11 +1,21 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-   resource :candidates, only: [:create]
-   resources :sign_in, only: [:create]
-   post "admin/login", to: 'sign_in#login'
+   
    root "homes#index"
-   resource :vacancies
-   resource :users
-   resource :job_categories
-   resource :job_positions
+   
+   namespace :api do
+     namespace :v1 do
+       namespace :candidates do
+         post "sign_up", to: 'candidates#sign_up'
+         post "login", to: 'session#login'
+       end
+       namespace :users do
+         post "login", to: 'session#login'
+       end
+       resources :vacancies
+       resources :job_categories
+       resources :job_positions
+     end
+   end
+
 end
