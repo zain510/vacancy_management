@@ -1,9 +1,8 @@
 import React, {Component } from 'react';
 import axios from 'axios';
+import jwtDecode from 'jwt-decode';
 
 export default class CreateVacancy extends React.Component {
-
-
   constructor(props){
     super(props);
     this.state = {
@@ -17,8 +16,6 @@ export default class CreateVacancy extends React.Component {
           this.handleChange = this.handleChange.bind(this);
           this.handleSubmit = this.handleSubmit.bind(this);
           this.stripHtmlEntities = this.stripHtmlEntities.bind(this);
-
-
   }
 
   handleChange(event) {
@@ -66,6 +63,7 @@ export default class CreateVacancy extends React.Component {
         const job_positions = res.data;
         this.setState({ job_positions });
       })
+      
   }
 
   ChangeJobPosition = (e) => {
@@ -84,11 +82,12 @@ export default class CreateVacancy extends React.Component {
       .replace(/</g, "&lt;")
       .replace(/>/g, "&gt;");
   }
+  
 
   render() {
     return (
       
-
+   
       <form onSubmit={this.handleSubmit}>
         <div className="form-group mt-3">
           <label>JobCategory</label>
@@ -148,6 +147,7 @@ export default class CreateVacancy extends React.Component {
           Create Vacancy
         </button>
       </form>
+    
     )
   }
 }

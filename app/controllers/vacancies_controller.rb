@@ -1,5 +1,5 @@
 class VacanciesController < ApplicationController
-  before_action :current_user
+  before_action :authorize_request_user
   def create
   	vacancy = Vacancy.create(vacancy_params) 
     if vacancy.valid?

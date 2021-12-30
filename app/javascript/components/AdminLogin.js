@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class LoginForm extends Component {
+class AdminLogin extends Component {
      handleSubmit = event => {
      event.preventDefault();
 
@@ -8,7 +8,7 @@ class LoginForm extends Component {
   formData.append("email", this.inputNode.value);
   formData.append("password", this.inputNode2.value);
 
- fetch("/sign_in",
+ fetch("/admin/login",
          { method: 'POST',body: formData})
         .then(res => res.json()).then(res => (console.log(res.token),
            window.localStorage.setItem('token', res.token)
@@ -42,5 +42,5 @@ class LoginForm extends Component {
   }
 
 }
-export default LoginForm;
+export default AdminLogin;
 

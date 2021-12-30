@@ -13,7 +13,7 @@ import App from "../components/App";
 import LoginForm from '../components/LoginForm'
 import SignInForm from '../components/SignInForm'
 import CreateVacancy from '../components/CreateVacancy'
-
+import AdminLogin from '../components/AdminLogin'
 document.addEventListener("DOMContentLoaded", () => {
   render(
   <BrowserRouter>
@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <Route path="loginform" element={<LoginForm />} />
       <Route path="signinform" element={<SignInForm />} />
       <Route path="/createvacancy" element={<CreateVacancy />} />
+      <Route path="/admin/login" element={<AdminLogin />} />
     </Routes>
   </BrowserRouter>,
     document.body.appendChild(document.createElement("div"))
