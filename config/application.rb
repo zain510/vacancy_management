@@ -18,5 +18,18 @@ module VacancyManagementSystem
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+   #  config.autoload_paths << “#{Rails.root}/lib” 
+       config.autoload_paths << Rails.root.join('lib')
+
+
+   #  config.generators.system_tests = nil
+   # config.middleware.insert_before 0, Rack::Cors do
+   #   allow do
+   #     origins '*'
+   #     resource '*', headers: :any, methods: [
+   #       :delete, :put, :patch, :get, :post, :options
+   #     ]
+   #   end
+   # end
   end
 end
