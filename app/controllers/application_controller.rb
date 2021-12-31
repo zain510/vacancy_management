@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
-  # protect_from_forgery except: :tokens
+  before_action :authorize_request
   skip_before_action :verify_authenticity_token
+
   def not_found
     render json: { error: 'not_found' }
   end
@@ -25,5 +26,4 @@ class ApplicationController < ActionController::Base
       render json: { errors: e.message }, status: :unauthorized
     end
   end
-
 end

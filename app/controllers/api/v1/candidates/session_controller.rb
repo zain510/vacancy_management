@@ -1,6 +1,7 @@
 class Api::V1::Candidates::SessionController < ApplicationController
+  skip_before_action :authorize_request
 
-  def login
+  def create
     candidate = Candidate.find_by_email(params[:email])
     if candidate&.authenticate(params[:password])
       token = JsonWebToken.encode(candidate: candidate.id)
@@ -10,5 +11,4 @@ class Api::V1::Candidates::SessionController < ApplicationController
       render json: { error: 'Invalid Email or Password' }, status: :unauthorized
     end
   end
-
 end
